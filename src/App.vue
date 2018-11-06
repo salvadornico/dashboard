@@ -1,22 +1,38 @@
-<template lang="pug">
-#app
-	h1 Hello World
-	router-view
+<template>
+  <v-app>
+    <v-toolbar app>
+      <v-toolbar-title class="headline text-uppercase">
+        <span>Vuetify</span>
+        <span class="font-weight-light">MATERIAL DESIGN</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        flat
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+      >
+        <span class="mr-2">Latest Release</span>
+      </v-btn>
+    </v-toolbar>
+
+    <v-content>
+      <HelloWorld/>
+    </v-content>
+  </v-app>
 </template>
 
-<script lang="ts">
-import Vue from "vue"
-import { Component } from "vue-property-decorator"
+<script>
+import HelloWorld from "./components/HelloWorld"
 
-@Component({
-	metaInfo: {
-		titleTemplate: "%s | Vue Typescript Template",
+export default {
+	name: "App",
+	components: {
+		HelloWorld,
 	},
-})
-export default class App extends Vue {}
+	data() {
+		return {
+			//
+		}
+	},
+}
 </script>
-
-<style lang="stylus">
-#app h1
-	center(XY, absolute)
-</style>
