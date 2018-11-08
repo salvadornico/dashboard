@@ -1,5 +1,5 @@
 <template lang="pug">
-#app
+v-app(dark)#app
 	Navbar
 	router-view
 </template>
@@ -21,4 +21,5 @@ export default class App extends Vue {}
 <style lang="stylus">
 #app
 	font-family "Roboto", sans-serif
+	height 100vh
 </style>

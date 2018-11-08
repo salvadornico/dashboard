@@ -1,19 +1,21 @@
 <template lang="pug">
-slider.slider(animation="fade", width="100vw", height="100vh")
-	slider-item(v-for="(page, index) in pages", :key="index")
+v-carousel(height="100%", interval="10000", dark, hide-delimiters)
+	v-carousel-item(v-for="(page, index) in pages", :key="index")
 		v-container
-			h1 {{ page }}
+			component(:is="page")
 </template>
 
 <script lang="ts">
+// Import all available pages
+import Calendar from "@/components/cards/Calendar.vue"
+import Stocks from "@/components/cards/Stocks.vue"
+import Weather from "@/components/cards/Weather.vue"
 import Vue from "vue"
-import { Slider, SliderItem } from "vue-easy-slider"
 import { Component } from "vue-property-decorator"
 
-@Component({
-	components: { Slider, SliderItem },
-})
+@Component
 export default class Carousel extends Vue {
-	pages = [1, 2, 3]
+	// Update this array based on whether each has been set up (check store for that)
+	pages = [Calendar, Stocks, Weather]
 }
 </script>
