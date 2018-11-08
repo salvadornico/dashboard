@@ -1,6 +1,7 @@
 <template lang="pug">
 #app
 	h1 Hello World
+	v-btn(color="blue") Success
 	router-view
 </template>
 
